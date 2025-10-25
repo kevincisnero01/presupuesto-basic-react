@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import TimelessPhrase from './components/TimelessPhrase.jsx';
 import BudgetQuestion from './components/BudgetQuestion.jsx';
+import ExpenseForm from './components/ExpenseForm.jsx';
+
 
 function App() {
 
@@ -32,48 +34,45 @@ function App() {
       </header>
 
       {/* Contenedor Principal (Container) */}
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <div className='w-1/2 m-auto'>
-          <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center ">
-          Gasto Semanal
-          </h1>
-          <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
-            <BudgetQuestion
-              setTotalBudget={setTotalBudget}
-              setRemainingBudget={setRemainingBudget}
-            />
+      <main className="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
+        {/*<!--Sub-container : Ideal para margenes, background o shadows -->*/}
+        <div class="flex flex-col space-y-4 h-full">
+          {/*<!--Fila 1 Columna1 -->*/}
+          <div>
+            <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center ">
+            Gasto Semanal
+            </h1>
+            <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
+              <BudgetQuestion
+                setTotalBudget={setTotalBudget}
+                setRemainingBudget={setRemainingBudget}
+              />
+            </div>
           </div>
-        </div>
 
-        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!--Columna Principal (Ocupa 2/3 en PC)-->
-          <section className="md:col-span-2">
-              <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
-                  <h2 className="text-xl font-semibold text-indigo-600 mb-4">
-                      Contenido Principal
-                  </h2>
-                  <p className="text-gray-600 mb-4">
-                      Esta área contiene la información principal.
-                  </p>
-                  
-              </div>
-          </section>
+          {/*<!--Fila 2-->*/}
+          <div class="flex space-x-4">
+            {/*<!--Columna Principal -->*/}
+            <section className="w-2/3">
+                <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
+                    <ExpenseForm />
+                </div>
+            </section>
 
-          <!--Columna Secundaria (Ocupa 1/3 en PC)-->
-          <section className="md:col-span-1">
-              <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
-                  <h2 className="text-xl font-semibold text-indigo-600 mb-4">
-                      Barra Lateral 
-                  </h2>
-                  <p className="text-gray-600 mb-4">
-                      Esta área contiene la información secundaria.
-                  </p>
-                  
-              </div>
-          </section>
-        </div> */}
-
+            {/*<!--Columna Secundaria -->*/}
+            <section className="w-1/3">
+                <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
+                    <h2 className="text-xl font-semibold text-indigo-600 mb-4">
+                        Barra Lateral 
+                    </h2>
+                    <p className="text-gray-600 mb-4">
+                        Esta área contiene la información secundaria.
+                    </p>
+                    
+                </div>
+            </section>
+          </div>
+        </div> 
       </main>
 
       <TimelessPhrase 
