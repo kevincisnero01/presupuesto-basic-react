@@ -3,6 +3,7 @@ import './App.css'
 import TimelessPhrase from './components/TimelessPhrase.jsx';
 import BudgetQuestion from './components/BudgetQuestion.jsx';
 import ExpenseForm from './components/ExpenseForm.jsx';
+import ExpenseIndex from './components/ExpenseIndex.jsx';
 
 
 function App() {
@@ -74,12 +75,9 @@ function App() {
               </section>
               <section className="w-1/3">
                   <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
-                      <h2 className="text-xl font-semibold text-indigo-600 mb-4">
-                          Barra Lateral 
-                      </h2>
-                      <p className="text-gray-600 mb-4">
-                          Esta área contiene la información secundaria.
-                      </p>
+                      <ExpenseIndex
+                        expenses={expenses}
+                      /> 
                   </div>
               </section>
             </div>
