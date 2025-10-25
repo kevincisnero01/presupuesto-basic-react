@@ -4,7 +4,7 @@ import TimelessPhrase from './components/TimelessPhrase.jsx';
 import BudgetQuestion from './components/BudgetQuestion.jsx';
 import ExpenseForm from './components/ExpenseForm.jsx';
 import ExpenseIndex from './components/ExpenseIndex.jsx';
-
+import BudgetControl from './components/BudgetControl.jsx';
 
 function App() {
 
@@ -77,7 +77,12 @@ function App() {
                   <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
                       <ExpenseIndex
                         expenses={expenses}
-                      /> 
+                      />
+
+                      <BudgetControl
+                        totalBudget={totalBudget}
+                        remainingBudget={remainingBudget}
+                      />
                   </div>
               </section>
             </div>
