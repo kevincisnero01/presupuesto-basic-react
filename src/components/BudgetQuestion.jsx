@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import MsgError from './MsgError';
 
-const BudgetQuestion = () => {
+const BudgetQuestion = ({setTotalBudget,setRemainingBudget}) => {
 
 //Definit States 
 const [quantity, setQuantity] = useState(0); //State : cantidad de presupuesto
@@ -22,8 +22,10 @@ const [error, setError] = useState(false) //
             return;
         }
 
-        //Validacion Ok
+        //Validacion aprobada  y guardado  cantiad de presupuesto
         setError(false);
+        setTotalBudget(quantity);
+        setRemainingBudget(quantity);
     }
 
     return (
@@ -31,7 +33,7 @@ const [error, setError] = useState(false) //
         <h2 className="text-xl font-semibold text-indigo-600 mb-4">
             Coloca tu presupuesto
         </h2>
-        
+
         { error ? <MsgError messageError="El Presupuesto es incorrecto" /> :  null }
 
         <form

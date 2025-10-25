@@ -5,6 +5,10 @@ import BudgetQuestion from './components/BudgetQuestion.jsx';
 
 function App() {
 
+  //Definir state
+  const [totalBudget, setTotalBudget] = useState(0);
+  const [remainingBudget, setRemainingBudget] = useState(0);
+
   return (
     <>
     {/* Contenedor principal de la aplicación con fondo y altura mínima (para el footer) */}
@@ -35,7 +39,10 @@ function App() {
           Gasto Semanal
           </h1>
           <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
-            <BudgetQuestion />
+            <BudgetQuestion
+              setTotalBudget={setTotalBudget}
+              setRemainingBudget={setRemainingBudget}
+            />
           </div>
         </div>
 
