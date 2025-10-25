@@ -21,7 +21,7 @@ function App() {
               />
               {/* Texto en el menú */}
               <span className="text-lg md:text-2xl font-extrabold text-indigo-700 flex items-center">
-                  Kevin's WebApps
+                  WebApps
               </span>
 
           </div>
