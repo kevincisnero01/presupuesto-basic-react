@@ -1,8 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 const BudgetQuestion = () => {
-  return (
-    <>
+
+const [quantity, setQuantity] = useState(0);
+
+    const defineBudget = e =>{
+        setQuantity(
+            parseInt(e.target.value,10)
+        );
+    }
+
+    const addBudget = e =>{
+        e.preventDefault();
+
+        //Validar
+
+
+        //Validacion Ok
+    }
+
+    return (
+        <>
         <h2 className="text-xl font-semibold text-indigo-600 mb-4">
             Coloca tu presupuesto
         </h2>
@@ -11,6 +29,7 @@ const BudgetQuestion = () => {
                 type="number"
                 className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
                 placeholder='Coloca tu presupuesto' 
+                onChange={defineBudget}
             />
 
             <input 
