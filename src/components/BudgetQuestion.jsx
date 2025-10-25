@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import MsgError from './MsgError';
 
-const BudgetQuestion = ({setTotalBudget,setRemainingBudget}) => {
+const BudgetQuestion = ({setTotalBudget,setRemainingBudget,setShowBudgetForm}) => {
 
 //Definit States 
 const [quantity, setQuantity] = useState(0); //State : cantidad de presupuesto
@@ -22,10 +22,11 @@ const [error, setError] = useState(false) //
             return;
         }
 
-        //Validacion aprobada  y guardado  cantiad de presupuesto
+        //Validacion aprobada, guardar cantidad y ocultar formulario de presupuesto 
         setError(false);
         setTotalBudget(quantity);
         setRemainingBudget(quantity);
+        setShowBudgetForm(false);
     }
 
     return (

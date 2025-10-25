@@ -10,6 +10,7 @@ function App() {
   //Definir state
   const [totalBudget, setTotalBudget] = useState(0);
   const [remainingBudget, setRemainingBudget] = useState(0);
+  const [showBudgetForm, setShowBudgetForm] = useState(true);
 
   return (
     <>
@@ -36,42 +37,45 @@ function App() {
       {/* Contenedor Principal (Container) */}
       <main className="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
         {/*<!--Sub-container : Ideal para margenes, background o shadows -->*/}
-        <div class="flex flex-col space-y-4 h-full">
-          {/*<!--Fila 1 Columna1 -->*/}
-          <div>
-            <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center ">
-            Gasto Semanal
-            </h1>
-            <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
-              <BudgetQuestion
-                setTotalBudget={setTotalBudget}
-                setRemainingBudget={setRemainingBudget}
-              />
+        <div className="flex flex-col space-y-4 h-full">
+          
+          { showBudgetForm ? (
+            //<!--Fila 1 Columna x1-->
+            <div>
+              <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center ">
+              Gasto Semanal
+              </h1>
+              <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
+                <BudgetQuestion
+                  setTotalBudget={setTotalBudget}
+                  setRemainingBudget={setRemainingBudget}
+                  setShowBudgetForm={setShowBudgetForm}
+                />
+              </div>
             </div>
-          </div>
+          ) : (
+            //<!--Fila 2 Columna x2-->
+            <div className="flex space-x-4">
+              <section className="w-2/3">
+                  <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
+                      <ExpenseForm 
+                        setShowBudgetForm={setShowBudgetForm}
+                      />
+                  </div>
+              </section>
+              <section className="w-1/3">
+                  <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
+                      <h2 className="text-xl font-semibold text-indigo-600 mb-4">
+                          Barra Lateral 
+                      </h2>
+                      <p className="text-gray-600 mb-4">
+                          Esta área contiene la información secundaria.
+                      </p>
+                  </div>
+              </section>
+            </div>
+          ) }
 
-          {/*<!--Fila 2-->*/}
-          <div class="flex space-x-4">
-            {/*<!--Columna Principal -->*/}
-            <section className="w-2/3">
-                <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
-                    <ExpenseForm />
-                </div>
-            </section>
-
-            {/*<!--Columna Secundaria -->*/}
-            <section className="w-1/3">
-                <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
-                    <h2 className="text-xl font-semibold text-indigo-600 mb-4">
-                        Barra Lateral 
-                    </h2>
-                    <p className="text-gray-600 mb-4">
-                        Esta área contiene la información secundaria.
-                    </p>
-                    
-                </div>
-            </section>
-          </div>
         </div> 
       </main>
 
