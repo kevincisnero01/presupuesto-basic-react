@@ -11,6 +11,14 @@ function App() {
   const [totalBudget, setTotalBudget] = useState(0);
   const [remainingBudget, setRemainingBudget] = useState(0);
   const [showBudgetForm, setShowBudgetForm] = useState(true);
+  const [expenses,setExpenses] = useState([]);
+
+  const addNewExpensive = (newExpense) =>  {
+    setExpenses([
+      ...expenses,
+      newExpense
+    ]);
+  }
 
   return (
     <>
@@ -60,6 +68,7 @@ function App() {
                   <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
                       <ExpenseForm 
                         setShowBudgetForm={setShowBudgetForm}
+                        addNewExpensive={addNewExpensive}
                       />
                   </div>
               </section>

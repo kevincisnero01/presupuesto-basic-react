@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import MsgError from './MsgError';
+import shortid from 'shortid';
 
-const ExpenseForm = ({setShowBudgetForm}) => {
+const ExpenseForm = ({setShowBudgetForm,addNewExpensive}) => {
 
     //Definit States
     const [name, setName] = useState('');
@@ -30,8 +31,18 @@ const ExpenseForm = ({setShowBudgetForm}) => {
         setError(false);
 
         //Construir el gasto
+        const newExpense = {
+            id: shortid.generate(), // ← Genera ID único
+            name,
+            quantity
+        };
 
         //Pasar el gasto al componente principal
+        addNewExpensive(newExpense);
+
+        //limpiar formulario
+        setName('');
+        setQuantity('');
     }
 
     return (
