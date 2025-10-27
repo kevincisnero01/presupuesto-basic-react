@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import TimelessPhrase from './components/TimelessPhrase.jsx';
 import BudgetQuestion from './components/BudgetQuestion.jsx';
@@ -13,14 +13,29 @@ function App() {
   const [remainingBudget, setRemainingBudget] = useState(0);
   const [showBudgetForm, setShowBudgetForm] = useState(true);
   const [expenses,setExpenses] = useState([]);
+  const [expense,setExpense] = useState({});
+  const [isSaveExpense, setIsSaveExpense] = useState(false);
 
-  const addNewExpensive = (newExpense) =>  {
-    setExpenses([
-      ...expenses,
-      newExpense
-    ]);
-  }
+  //Hook Para guardar Gasto
+  useEffect(() => {
+    if(isSaveExpense){
+      //Agregar gasto al presupuesto
+      setExpenses([
+        ...expenses, //Array de objetos
+        expense //Item o Objeto
+      ]);
 
+
+      //Restar gasto  del Presupuesto Actual
+      const remaining = remainingBudget - expense.quantity;
+      setRemainingBudget(remaining);
+
+      //Resetear condicional
+      setIsSaveExpense(false);
+    }
+  },[expense])
+
+  
   return (
     <>
     {/* Contenedor principal de la aplicación con fondo y altura mínima (para el footer) */}
@@ -69,7 +84,8 @@ function App() {
                   <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
                       <ExpenseForm 
                         setShowBudgetForm={setShowBudgetForm}
-                        addNewExpensive={addNewExpensive}
+                        setExpense={setExpense}
+                        setIsSaveExpense={setIsSaveExpense}
                       />
                   </div>
               </section>

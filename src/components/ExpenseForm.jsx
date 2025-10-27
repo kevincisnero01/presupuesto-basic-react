@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MsgError from './MsgError';
 import shortid from 'shortid';
 
-const ExpenseForm = ({setShowBudgetForm,addNewExpensive}) => {
+const ExpenseForm = ({setShowBudgetForm,setExpense,setIsSaveExpense}) => {
 
     //Definit States
     const [name, setName] = useState('');
@@ -38,7 +38,8 @@ const ExpenseForm = ({setShowBudgetForm,addNewExpensive}) => {
         };
 
         //Pasar el gasto al componente principal
-        addNewExpensive(newExpense);
+        setExpense(newExpense);
+        setIsSaveExpense(true);
 
         //limpiar formulario
         setName('');
