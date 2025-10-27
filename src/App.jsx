@@ -33,9 +33,18 @@ function App() {
       //Resetear condicional
       setIsSaveExpense(false);
     }
-  },[expense])
+  },[expense, expenses])
 
   
+  //Funcion para Resetear el Presupuesto
+  const resetBudget = () => {
+    setTotalBudget(0);
+    setRemainingBudget(0);
+    setShowBudgetForm(true);
+    setExpense({});
+    setExpenses([]);
+  };
+
   return (
     <>
     {/* Contenedor principal de la aplicación con fondo y altura mínima (para el footer) */}
@@ -86,6 +95,7 @@ function App() {
                         setShowBudgetForm={setShowBudgetForm}
                         setExpense={setExpense}
                         setIsSaveExpense={setIsSaveExpense}
+                        resetBudget={resetBudget}
                       />
                   </div>
               </section>
