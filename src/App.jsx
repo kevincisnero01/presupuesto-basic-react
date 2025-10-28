@@ -68,17 +68,17 @@ function App() {
       </header>
 
       {/* Contenedor Principal (Container) */}
-      <main className="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
+      <main className="flex-grow max-w-4xl w-full mx-auto px-0 sm:px-6 lg:px-8 py-4 lg:py-8 ">
         {/*<!--Sub-container : Ideal para margenes, background o shadows -->*/}
-        <div className="flex flex-col space-y-4 h-full">
+        <div className="flex flex-col space-y-4 h-full ">
           
           { showBudgetForm ? (
             //<!--Fila 1 Columna x1-->
             <div>
-              <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center ">
+              <h1 className="text-xl md:text-3xl font-bold text-gray-800 px-2 mb-2 md:mb-6 flex items-center ">
               Gasto Semanal
               </h1>
-              <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
+              <div className="bg-red-white p-6 rounded-none md:rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
                 <BudgetQuestion
                   setTotalBudget={setTotalBudget}
                   setRemainingBudget={setRemainingBudget}
@@ -88,8 +88,8 @@ function App() {
             </div>
           ) : (
             //<!--Fila 2 Columna x2-->
-            <div className="flex space-x-4">
-              <section className="w-2/3">
+            <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+              <section className="w-full md:w-2/3">
                   <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl h-full">
                       <ExpenseForm 
                         setShowBudgetForm={setShowBudgetForm}
@@ -99,7 +99,7 @@ function App() {
                       />
                   </div>
               </section>
-              <section className="w-1/3">
+              <section className="w-full md:w-1/3">
                   <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full">
                       <ExpenseIndex
                         expenses={expenses}
