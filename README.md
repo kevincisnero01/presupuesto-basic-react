@@ -1,17 +1,22 @@
 # 💰 Gestión de Presupuestos Personales con React
 
 
-
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) |
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/tailwind_css-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) |
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) |
 
 ## 💡 Descripción del Proyecto
 
 **Calculadora de Gestión de Presupuestos Personales (v1.0.0)** es una aplicación web dinámica desarrollada en **React** diseñada para ofrecer una herramienta intuitiva para el seguimiento financiero personal.
 
 El sistema permite al usuario **establecer un presupuesto inicial** y, a partir de ese valor, **registrar gastos secuenciales**. Utilizando un flujo de datos unidireccional, la aplicación gestiona el estado para ofrecer una **actualización en tiempo real** del capital restante, proporcionando una visión clara y reactiva de la salud financiera mediante un listado persistente de las transacciones.
+
+---
+## 🖥️ Vista Previa
+A continuación, se muestra una captura de pantalla de la interfaz de la aplicación:
+
+![Capture de Pantalla](src/assets/screenshot.png)
 
 ---
 
@@ -88,3 +93,12 @@ El código está organizado en una estructura de componentes clara, lo que facil
 ├── package.json
 └── vite.config.js
 ```
+
+🚀 Hoja de Ruta (Roadmap)
+El proyecto busca la mejora constante. Estas son algunas funcionalidades pendientes o planificadas para futuras versiones:
+
+- [ ] Persistencia de Datos: Implementar el almacenamiento del presupuesto y gastos para que persistan entre sesiones del navegador (usando localStorage o, idealmente, una base de datos como Firestore).
+- [ ] Gestión Completa de Gastos: Permitir la edición y eliminación de gastos individuales de la lista.
+- [ ] Filtrado por Categoría: Introducir categorías de gastos y la capacidad de filtrar la lista de transacciones.
+- [ ] Mejora de UI/UX: Aplicar un sistema de diseño (como TailwindCSS) para modernizar la interfaz y asegurar un layout responsivo.
+- [ ] Refactorización: Migrar la base de código a TypeScript para mejorar la robustez y la escalabilidad.
